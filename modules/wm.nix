@@ -1,14 +1,19 @@
 { config, pkgs, ... }:
 
 {
-  services.xserver.enable = true;
-  services.xserver.windowManager.bspwm.enable = true;
+  services = {
+    xserver = {
+      enable = true;
+      windowManager.bspwm.enable = true;
+    };
 
-  services.picom.enable = true;
+    picom.enable = true;
+  };
+
   environment.systemPackages = with pkgs; [
-    sudo,
-    rofi,
-    htop,
-    alacritty,
-  ]
+    alacritty
+    bspwm
+    sxhkd
+    rofi
+  ];
 }

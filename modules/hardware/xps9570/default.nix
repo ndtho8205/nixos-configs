@@ -10,16 +10,13 @@
   boot = {
     kernelModules = [ "acpi_call" ];
     extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
+
+    blacklistedKernelModules = lib.optionals (!config.hardware.enableRedistributableFirmware) [
+      "ath3k"
+    ];
+
+    kernelParams = lib.mkDefault [ "acpi_rev_override" ];
   };
-
-  boot.blacklistedKernelModules = lib.optionals (!config.hardware.enableRedistributableFirmware) [
-    "ath3k"
-  ];
-
-  # Boot loader
-  boot.loader.systemd-boot.enable = lib.mkDefault true;
-  boot.loader.efi.canTouchEfiVariables = lib.mkDefault true;
-  boot.kernelParams = lib.mkDefault [ "acpi_rev_override" ];
 
   # thermald
   services.thermald.enable = lib.mkDefault true;

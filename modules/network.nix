@@ -11,5 +11,5 @@
     # Firewall
     firewall.enable = true;
     firewall.allowPing = false;
-  }
+  };
 }
