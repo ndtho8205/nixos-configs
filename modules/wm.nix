@@ -11,9 +11,11 @@
   };
 
   environment.systemPackages = with pkgs; [
+    zsh
     alacritty
     bspwm
     sxhkd
     rofi
+    dunst
   ];
 }

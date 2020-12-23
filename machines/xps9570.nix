@@ -10,6 +10,10 @@
     efi.canTouchEfiVariables = true;
   };
 
+  services = {
+    localtime.enable = true;
+  }
+
   users = {
     defaultUserShell = pkgs.zsh;
 
@@ -24,10 +28,6 @@
 
       extraGroups = [
         "wheel"
-        "audio"
-        "input"
-        "storage"
-        "video"
         "networkmanager"
       ];
 
@@ -48,7 +48,6 @@
         vim
         wget
 
-        zsh
         sutils
         xdo
         xdotool

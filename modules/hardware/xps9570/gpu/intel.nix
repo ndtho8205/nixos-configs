@@ -2,11 +2,8 @@
 
 {
   services.xserver = {
-    videoDrivers = [ "modesetting" ];
-
-    dpi = 144;
-
     useGlamor = true;
+    videoDrivers = [ "modesetting" ];
   };
 
   modules = with pkgs; [
